@@ -1,0 +1,11 @@
+{
+    "GitRepoPath":"E:\\Github\\sync",
+    "Chrome":{
+        "LocalPath":"C:\\Users\\a6924.GOLDDRAGON.COM\\AppData\\Local\\CentBrowser\\User Data\\Default",
+        "GitPath":"E:\\Github\\sync\\bookmarks"
+    },
+    "IE":{
+        "LocalPath":"C:\\Users\\a6924.GOLDDRAGON.COM\\Favorites\\Links",
+        "GitPath":"E:\\Github\\sync\\bookmarks"
+    }
+}

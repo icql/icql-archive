@@ -1,0 +1,14 @@
+.idea/
+*.iml
+icql-ithome/target/
+icql-ithome-article/target/
+icql-ithome-common/target/
+icql-ithome-gathering/target/
+icql-ithome-label/target/
+icql-ithome-qa/target/
+icql-ithome-recruit/target/
+icql-ithome-search/target/
+icql-ithome-sms/target/
+icql-ithome-spit/target/
+icql-ithome-user/target/
+

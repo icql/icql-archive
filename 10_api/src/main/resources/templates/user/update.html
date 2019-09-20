@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>修改密码</title>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.icql.js"></script>
+  <style>
+      @media screen and (min-width:965px) {
+      body {font-size:1vw;}
+      }
+
+      @media screen and (max-width:965px) and (min-width:445px) {
+      body {font-size:3.5vw;}
+      }
+
+      @media screen and (max-width:445px) {
+      body {font-size:4vw;}
+      }
+  </style>
+</head>
+<body>
+<h3 style='text-align:center;margin-top:30px'>修改密码</h3>
+
+<table style='text-align:center;margin: 50px auto;'>
+    <tr>
+        <td>用户名/邮箱：</td>
+        <td>
+            <input id='account' type="text" placeholder='请输入用户名/邮箱' autocomplete="off"/>
+        </td>
+    </tr>
+    <tr>
+        <td>旧密码：</td>
+        <td>
+            <input id='oldPassword' type="password" placeholder='请输入旧密码' autocomplete="off"/>
+
+        </td>
+    </tr>
+    <tr>
+        <td>新密码：</td>
+        <td>
+            <input id='password' type="password" placeholder='请输入新密码' autocomplete="off"/>
+
+        </td>
+    </tr>
+    <tr>
+        <td>再次输入新密码：</td>
+        <td>
+            <input id='rePassword' type="password" placeholder='请再次输入新密码' autocomplete="off" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button onclick='return passport();'>修改密码</button>
+        </td>
+    </tr>
+</table>
+
+<script>
+    function passport() {
+        var account = document.getElementById("account");
+        var password = document.getElementById("password");
+        var rePassword = document.getElementById("rePassword");
+        var oldPassword = document.getElementById("oldPassword");
+
+        if (account.value == "" || password.value == "" || rePassword.value == "" || oldPassword.value == "") {
+            alert("请输入必填项!");
+            return false;
+        }
+        if (password.value != rePassword.value) {
+            alert("两次密码输入不一致，请检查!");
+            return false;
+        }
+
+        var data = {"name": account.value, "email": account.value, "password": password.value, "temp": oldPassword.value};
+        ICQL.POST("/user/update", JSON.stringify(data),
+            function (result) {
+                alert(result.msg);
+            },
+            function (result) {
+                alert(result.responseJSON.msg + "，" +result.responseJSON.data);
+            });
+        return true;
+    }
+</script>
+</body>
+</html>

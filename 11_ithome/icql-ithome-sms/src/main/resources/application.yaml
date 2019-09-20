@@ -1,0 +1,15 @@
+server:
+  port: 9009
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: ithome-sms
+  rabbitmq:
+    host: 172.0.0.1
+
+logging:
+  level:
+    root: INFO
+  #file: ithome-sms.log

@@ -1,0 +1,10 @@
+<html>
+<head>
+    <title>${title}</title>
+</head>
+<body>
+<div>
+${test}
+</div>
+</body>
+</html>

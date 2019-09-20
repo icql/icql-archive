@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>金旅客车人力资源信息化——我的基本信息</title>
+    <script type="text/javascript" src="./js/jquery-3.2.0.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <link type="text/css" rel=stylesheet href="./css/mystyle.css"></link>
+</head>
+
+<body style="overflow:hidden">
+    <header class="home">
+        <table id="headText">
+            <tr>
+                <td>尊敬的</td>
+                <td id="mainName"></td>
+                <td>您有</td>
+                <td><a href="http://172.16.10.114/HR/WebPublic/Message.aspx" target="content">0</a></td>
+                <td>条新信息,</td>
+                <td>请查阅!</td>
+                <td><a id="reload" href="javascript:location.reload()">刷新</a></td>
+            </tr>
+        </table>
+        <table id="headImg">
+            <tr>
+                <td>
+                    <a href="javascript:window.open('http://172.16.10.114/HR/Help/Redirect.aspx','_blank','height=600,width=800')"><img id="help" src="./img/help.gif" alt="帮助图标" /></a>
+                </td>
+                <td>
+                    <a href=""><img id="logout" src="./img/logout.gif" alt="注销图标" /></a>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <nav>
+        <div class="head-nav"><span class="head-nav">功能导航栏</span></div>
+        <ul>
+            <li class="home" title="员工自助"><span class="home-text">员工自助</span></li>
+            <ul class="root">
+                <span class="root-all" title="我的信息"><img id="rootImg" data-id="true" src="./img/nopen.gif"><span class="root-text">我的信息</span></img></span>
+                <li class="basic" title="我的基本信息"><a class="a-nav" href="./information.html" target="content">我的基本信息</a></li>
+                <li class="basic" title="人员信息查询"><a class="a-nav" href="./search.html" target="content">人员信息查询</a></li>
+                <li class="basic" title="我的工资级别变动"><a class="a-nav" href="./wages.html" target="content">我的工资级别变动</a></li>
+                <li class="basic" title="修改密码"><a class="a-nav" href="./passwords.html" target="content">修改密码</a></li>
+            </ul>
+        </ul>
+    </nav>
+    <div id="imgBtn">
+        <img class="mid-btn" src="./img/midbtn1.gif" alt="隐藏导航条" title="隐藏导航条" />
+    </div>
+    <section id="sec">
+        <iframe id="content" src="./information.html" name="content" frameborder="0"></iframe>
+    </section>
+</body>
+
+</html>

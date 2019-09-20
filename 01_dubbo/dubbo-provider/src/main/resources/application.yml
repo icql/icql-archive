@@ -1,0 +1,24 @@
+dubbo:
+  registry:
+    address: localhost:2181,localhost:2182,localhost:2183
+    protocol: zookeeper
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20880
+  application:
+    id: provider
+    name: provider
+    owner: icql
+  scan:
+    base-packages: work.icql.dubbo.provider.service.impl
+  provider:
+    timeout: 120000
+    threadpool: fixed
+    threads: 100
+    accepts: 1000
+
+logging:
+  level:
+    root: INFO
+  #file: provider.log

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>WebSocket test</title>
+</head>
+
+<body>
+<table>
+    <tr>
+        <td>客户端id：</td>
+        <td><input type="text" id="id"/></td>
+        <td>
+            <button onclick="return connect();">连接</button>
+            <button onclick="return disconnect();">断开连接</button>
+        </td>
+    </tr>
+</table>
+
+<hr/>
+
+<table>
+    <tr>
+        <td>message：</td>
+        <td><input type="text" id="message1"/></td>
+        <td>
+            <button onclick="sendMessage1();">发送广播</button>
+        </td>
+    </tr>
+    <tr>
+        <td>message：</td>
+        <td><input type="text" id="message2"/></td>
+        <td>对方客户端id</td>
+        <td><input type="text" id="otherId"/></td>
+        <td>
+            <button onclick="sendMessage2();">点对点发送</button>
+        </td>
+    </tr>
+</table>
+
+<hr/>
+
+<div id="resultArea">
+    result：
+    <div id="result"></div>
+</div>
+</div>
+
+<script src="/js/sockjs.min.js"></script>
+<script src="/js/stomp.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script th:inline="javascript">
+    var stompClient = null;
+
+    function connect() {
+        var id = $('#id').val();
+        var socketPath = "/websocket/endpoint";
+        var broadcastPath = "/websocket/broadcast/type1";
+        var pointPath = "/websocket/point/" + id + "/type1";
+
+        if (!id) {
+            alert("id不能为空！");
+            return;
+        }
+
+        console.log("开始连接");
+
+        stompClient = Stomp.over(new SockJS(socketPath));
+        //配置订阅
+        stompClient.connect({}, function (frame) {
+            stompClient.subscribe(broadcastPath, function (result) {
+                showResult(result);
+            });
+            stompClient.subscribe(pointPath, function (result) {
+                showResult(result);
+            });
+        });
+    }
+
+    function sendMessage1() {
+        var sendUrl = "/websocket/sendall";
+        var message = $('#message1').val();
+        //第二个参数是header值
+        stompClient.send(sendUrl, {}, message);
+    }
+
+    function sendMessage2() {
+        var sendUrl = "/websocket/send";
+        var otherId = $('#otherId').val();
+        var message = $('#message2').val();
+        //这里传递给后台的值可以封装成Json对象字符串 JSON.stringify({"orderId":otherId,"msg":message})，后台用RequestBody接收
+        stompClient.send(sendUrl, {}, (otherId + "," + message));
+    }
+
+    function disconnect() {
+        if (stompClient != null) {
+            stompClient.disconnect();
+        }
+        console.log("断开连接");
+    }
+
+    function showResult(result) {
+        console.log(result)
+        $('#result').html(JSON.parse(result.body).data);
+    }
+</script>
+</body>
+</html>

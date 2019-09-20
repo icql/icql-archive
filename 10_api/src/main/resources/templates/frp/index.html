@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>frp</title>
+    <style>
+        @media screen and (min-width:965px) {
+        body {font-size:1vw;}
+        #content{width: 50%}
+        }
+
+        @media screen and (max-width:965px) and (min-width:445px) {
+        body {font-size:3vw;}
+        #content{width: 90%}
+        }
+
+        @media screen and (max-width:445px) {
+        body {font-size:4vw;}
+        #content{width: 95%}
+        }
+    </style>
+</head>
+<body>
+<h3 style='text-align:center;margin-top:30px'>Frp内网穿透</h3>
+<div style='text-align:center;margin-top:30px'>
+    <div id="content" style='margin:0 auto;text-align:left'>
+        <b>使用说明：</b>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        1）下载frpc客户端，配置frpc.ini，然后双击启动run.bat即可。也可以nssm将此应用注册为windows服务，开机自启后台运行，避免每次需要手动开启。
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2）<a href='/frp/admin' target="_blank">管理界面</a>
+        <br>
+        <br>
+        <b>注意：</b>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        1）frpc.ini配置文件中端口范围取 57003-57010 中的一个，若全部被占用，请邮件联系 chenqingin@icql.work
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2）使用nssm安装win服务时，先在cmd命令窗口中输入nssm install 服务名称，跳出安装窗口，启动应用选择 frpc.exe，参数填入：frpc.exe -c frpc.ini，这里的frpc.exe和frpc.ini均需要完整路径，且设置完成后不能移动文件夹
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        3）若使用的是转发远程桌面，则双击run.bat或者注册win服务成功后，可以在别的电脑mstsc远程此电脑，地址为 api.icql.work:你设置的端口
+        <br>
+        <br>
+        <b>附件下载：</b>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='https://file.icql.work/temp/frpc.zip'>frpc客户端</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='https://file.icql.work/temp/frpc.zip'>nssm.exe</a>
+    </div>
+</div>
+</body>
+</html>

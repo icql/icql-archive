@@ -1,0 +1,60 @@
+server:
+  port: 8020
+  servlet:
+    context-path: /
+  management:
+    security:
+      enabled: false
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    config:
+      uri: http://localhost:8005/
+      profile: dev
+
+logging:
+  level:
+    root: INFO
+    #file: gateway.log
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8010/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+
+zuul:
+  prefix: /api # 添加路由前缀
+  retryable: true
+  sensitive-headers: authorization
+  routes:
+    auth: /auth/** # 授权中心
+    message: /message/** # 消息服务
+
+ribbon:
+  ConnectTimeout: 250 # 连接超时时间(ms)
+  ReadTimeout: 2000 # 通信超时时间(ms)
+  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 1 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 1 # 同一实例的重试次数
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 10000 # 熔断超时时长：10000ms
+
+icql:
+  jwt:
+    requestHeaderKey: Authorization
+    redisKey4PublicKey: auth.publicKey # redis公钥key
+  filter:
+    allowPaths:
+    - /api/auth

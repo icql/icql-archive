@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>work.icql</groupId>
+        <artifactId>icql-base</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
+    <artifactId>icql-ithome</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../icql-ithome-common</module>
+        <module>../icql-ithome-recruit</module>
+        <module>../icql-ithome-label</module>
+        <module>../icql-ithome-qa</module>
+        <module>../icql-ithome-article</module>
+        <module>../icql-ithome-spit</module>
+        <module>../icql-ithome-search</module>
+        <module>../icql-ithome-user</module>
+        <module>../icql-ithome-sms</module>
+        <module>../icql-ithome-gathering</module>
+    </modules>
+</project>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>重新激活</title>
+  <script src="/js/jquery.min.js"></script>
+      <script src="/js/jquery.icql.js"></script>
+      <style>
+          @media screen and (min-width:965px) {
+          body {font-size:1vw;}
+          }
+
+          @media screen and (max-width:965px) and (min-width:445px) {
+          body {font-size:3.5vw;}
+          }
+
+          @media screen and (max-width:445px) {
+          body {font-size:4vw;}
+          }
+      </style>
+</head>
+<body>
+<h3 style='text-align:center;margin-top:30px'>重新激活</h3>
+
+<table style='text-align:center;margin: 50px auto;'>
+    <tr>
+        <td>用户名/邮箱：</td>
+        <td>
+            <input id='account' type="text" placeholder='请输入用户名/邮箱' autocomplete="off"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button onclick='return passport();'>发送激活邮件</button>
+        </td>
+    </tr>
+</table>
+
+<script>
+    function passport() {
+        var account = document.getElementById("account");
+
+        if (account.value == "") {
+            alert("请输入必填项!");
+            return false;
+        }
+
+        var data = {"name": account.value, "email": account.value};
+        ICQL.POST("/user/reactive", JSON.stringify(data),
+            function (result) {
+                alert(result.msg);
+            },
+            function (result) {
+                alert(result.responseJSON.msg + "，" + result.responseJSON.data);
+            });
+        return true;
+    }
+</script>
+</body>
+</html>

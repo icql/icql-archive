@@ -1,0 +1,15 @@
+{
+    "instructions": {
+        "title": "使用说明",
+        "content": "1.获取需要vip会员的视频地址并复制\n2.将其粘贴到下面的url地址框中，点击播放\n3.若播放失败请切换接口后再次点击播放"
+    },
+    "changelog": {
+        "title": "更新日志",
+        "content": "2017-10-04——v1.0，完善基本功能\n2017-10-05——v1.1，增加接口以及访客统计，调整细节\n2017-10-06——v1.2，增加接口，修改数据写入方法\n2017-10-06——v2.0，增加分享和评论功能"
+    },
+    "interface": {
+        "+1号接口": "http://api.wlzhan.com/sudu/?url=",
+        "+2号接口": "http://jx.vgoodapi.com/jx.php?url=",
+        "+3号接口":"http://jx.aeidu.cn/index.php?url="
+    }
+}

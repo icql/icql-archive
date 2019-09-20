@@ -1,0 +1,48 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+logging:
+  config: classpath:log/logback.xml
+  path: log/
+
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  datasource:
+    druid:
+      loginUsername: ENC(3W7AWvaO3Rwh8r/YKfhSYw==)
+      loginPassword: ENC(6y/TgTLj90XvNF5DQdnyNof+/BSoWW6/)
+      api:
+        username: ENC(h5LLXdHctt9UiXh/HOHcfg==)
+        password: ENC(iCwN42RyP3L21F4Mt4pBngvGluTpOrEP)
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://icql.work:3306/cloud-tool?useUnicode=true&characterEncoding=utf-8&useServerPrepStmts=true&useSSL=false&cachePrepStmts=true&allowMultiQueries=true
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+  cache:
+    type: caffeine
+    caffeine:
+      initialCapacity: 10
+      maximumSize: 500
+      expireAfterWrite: 7200
+      cacheTemplateExpireAfterWrite: 86400
+
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+
+mail:
+  username: ENC(LuEAi1VV16FDNinvlAniTjw66fcWFUddvRlOKsnF7N0=)
+  password: ENC(WOoGzyxLClJmJceHBjkgXRq06uf2AZxgrLy2dBClzkU=)
+
+jwt:
+  secret: ENC(WDTNDyY+viMwzYmBzt5HwnGn/lgYdNGKVA+12ZGwonTx7ny1LaKxHhmmShh/aSgH) # 计算RSA密钥的盐
+  token-expire: 1440 # token默认过期时间，单位分钟

@@ -1,0 +1,34 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /
+  management:
+    security:
+      enabled: false
+      
+spring:
+  application:
+    name: auth
+  cloud:
+    config:
+      uri: http://localhost:8005/
+      profile: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8001/eureka
+    registry-fetch-interval-seconds: 10
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+
+icql:
+  jwt:
+    secret: icql.work@Login(Auth}*^31)&% # 登录校验的密钥
+    expire: 30 # 过期时间，单位分钟
+    redisKey4PrivateKey: auth.privateKey # redis私钥key
+    redisKey4PublicKey: auth.publicKey # redis公钥key

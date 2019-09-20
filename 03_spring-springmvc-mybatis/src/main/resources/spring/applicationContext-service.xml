@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+    <!-- 包扫描器，扫描带@Service注解的类 -->
+    <context:component-scan base-package="work.icql.ssm.service"></context:component-scan>
+
+    <!--fastdfs客户端-->
+    <bean id="fastdfsClient" class="work.icql.javatutil.FastdfsClient">
+        <constructor-arg name="trackerServers" value="${fastdfs.trackerServers}"></constructor-arg>
+    </bean>
+
+    <!--sso缓存管理器-->
+    <bean id="cacheManager" class="work.icql.javatutil.CacheManager"></bean>
+
+    <!--freemarker：若只是生成freemark，不能将此bean加载在spring mvc容器中-->
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/jsp/freemarker"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+</beans>

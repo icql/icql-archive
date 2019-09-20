@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <!-- 注册自定义realm -->
+    <bean id="icqlRealm" class="work.icql.ssm.interceptor.IcqlRealm"></bean>
+    <!-- 缓存管理 -->
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"></bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="icqlRealm"/>
+        <property name="cacheManager" ref="shiroCacheManager"></property>
+    </bean>
+
+    <!-- 配置一个工厂bean，用于创建shiro框架用到过滤器 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 注入安全管理器 -->
+        <property name="securityManager" ref="securityManager"></property>
+        <!-- 注入当前系统的登录页面 -->
+        <property name="loginUrl" value="/shiro/login"/>
+        <!-- 注入成功页面 -->
+        <property name="successUrl" value="/shiro/index"/>
+        <!-- 注入权限不足提示页面 -->
+        <property name="unauthorizedUrl" value="/shiro/unauthorized"/>
+
+        <!-- 注入URL拦截规则 -->
+        <property name="filterChainDefinitions">
+            <value>
+                <!--anon:匿名,authc:认证,perms:授权功能,roles:授权角色-->
+                /shiro/login* = anon
+                /shiro/api/login = anon
+                /shiro* = authc
+                /shiro/** = authc
+
+                /shiro/api/testFunc1 = perms["func1"]
+                <!--角色会经常变动，因此不建议使用角色来控制权限，应该使用perms 权限表的权限code进行控制-->
+                <!--/shiro/api/testFunc2 = roles["role2"]-->
+            </value>
+        </property>
+    </bean>
+
+    <!--shiro 开启注解，将下面以下 beans 放到 spring-mvc 配置文件中-->
+    <!--<aop:config proxy-target-class="true"></aop:config>-->
+    <!--<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">-->
+        <!--<property name="securityManager" ref="securityManager"/>-->
+    <!--</bean>-->
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+        <!--<property name="exceptionMappings">-->
+            <!--<props>-->
+                <!--<prop key="org.apache.shiro.authz.UnauthorizedException">/shiro/unauthorized</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+</beans>

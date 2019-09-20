@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="work.icql.ssm.mapper.TbShiroFuncMapper">
+  <resultMap id="BaseResultMap" type="work.icql.ssm.pojo.TbShiroFunc">
+    <id column="funcId" jdbcType="VARCHAR" property="funcid" />
+    <result column="funcName" jdbcType="VARCHAR" property="funcname" />
+    <result column="funcCode" jdbcType="VARCHAR" property="funccode" />
+    <result column="funcDesc" jdbcType="VARCHAR" property="funcdesc" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="isMenu" jdbcType="VARCHAR" property="ismenu" />
+    <result column="zindex" jdbcType="INTEGER" property="zindex" />
+    <result column="pId" jdbcType="VARCHAR" property="pid" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    funcId, funcName, funcCode, funcDesc, url, isMenu, zindex, pId, created, updated, 
+    version
+  </sql>
+  <select id="selectByExample" parameterType="work.icql.ssm.pojo.TbShiroFuncExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_shiro_func
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_shiro_func
+    where funcId = #{funcid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_shiro_func
+    where funcId = #{funcid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="work.icql.ssm.pojo.TbShiroFuncExample">
+    delete from tb_shiro_func
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="work.icql.ssm.pojo.TbShiroFunc">
+    insert into tb_shiro_func (funcId, funcName, funcCode, 
+      funcDesc, url, isMenu, 
+      zindex, pId, created, 
+      updated, version)
+    values (#{funcid,jdbcType=VARCHAR}, #{funcname,jdbcType=VARCHAR}, #{funccode,jdbcType=VARCHAR}, 
+      #{funcdesc,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{ismenu,jdbcType=VARCHAR}, 
+      #{zindex,jdbcType=INTEGER}, #{pid,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, 
+      #{updated,jdbcType=TIMESTAMP}, #{version,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="work.icql.ssm.pojo.TbShiroFunc">
+    insert into tb_shiro_func
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="funcid != null">
+        funcId,
+      </if>
+      <if test="funcname != null">
+        funcName,
+      </if>
+      <if test="funccode != null">
+        funcCode,
+      </if>
+      <if test="funcdesc != null">
+        funcDesc,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="ismenu != null">
+        isMenu,
+      </if>
+      <if test="zindex != null">
+        zindex,
+      </if>
+      <if test="pid != null">
+        pId,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="updated != null">
+        updated,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="funcid != null">
+        #{funcid,jdbcType=VARCHAR},
+      </if>
+      <if test="funcname != null">
+        #{funcname,jdbcType=VARCHAR},
+      </if>
+      <if test="funccode != null">
+        #{funccode,jdbcType=VARCHAR},
+      </if>
+      <if test="funcdesc != null">
+        #{funcdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="ismenu != null">
+        #{ismenu,jdbcType=VARCHAR},
+      </if>
+      <if test="zindex != null">
+        #{zindex,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="work.icql.ssm.pojo.TbShiroFuncExample" resultType="java.lang.Long">
+    select count(*) from tb_shiro_func
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_shiro_func
+    <set>
+      <if test="record.funcid != null">
+        funcId = #{record.funcid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.funcname != null">
+        funcName = #{record.funcname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.funccode != null">
+        funcCode = #{record.funccode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.funcdesc != null">
+        funcDesc = #{record.funcdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.url != null">
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ismenu != null">
+        isMenu = #{record.ismenu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zindex != null">
+        zindex = #{record.zindex,jdbcType=INTEGER},
+      </if>
+      <if test="record.pid != null">
+        pId = #{record.pid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.created != null">
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updated != null">
+        updated = #{record.updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.version != null">
+        version = #{record.version,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_shiro_func
+    set funcId = #{record.funcid,jdbcType=VARCHAR},
+      funcName = #{record.funcname,jdbcType=VARCHAR},
+      funcCode = #{record.funccode,jdbcType=VARCHAR},
+      funcDesc = #{record.funcdesc,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      isMenu = #{record.ismenu,jdbcType=VARCHAR},
+      zindex = #{record.zindex,jdbcType=INTEGER},
+      pId = #{record.pid,jdbcType=VARCHAR},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      updated = #{record.updated,jdbcType=TIMESTAMP},
+      version = #{record.version,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="work.icql.ssm.pojo.TbShiroFunc">
+    update tb_shiro_func
+    <set>
+      <if test="funcname != null">
+        funcName = #{funcname,jdbcType=VARCHAR},
+      </if>
+      <if test="funccode != null">
+        funcCode = #{funccode,jdbcType=VARCHAR},
+      </if>
+      <if test="funcdesc != null">
+        funcDesc = #{funcdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="ismenu != null">
+        isMenu = #{ismenu,jdbcType=VARCHAR},
+      </if>
+      <if test="zindex != null">
+        zindex = #{zindex,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        pId = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=BIGINT},
+      </if>
+    </set>
+    where funcId = #{funcid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="work.icql.ssm.pojo.TbShiroFunc">
+    update tb_shiro_func
+    set funcName = #{funcname,jdbcType=VARCHAR},
+      funcCode = #{funccode,jdbcType=VARCHAR},
+      funcDesc = #{funcdesc,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      isMenu = #{ismenu,jdbcType=VARCHAR},
+      zindex = #{zindex,jdbcType=INTEGER},
+      pId = #{pid,jdbcType=VARCHAR},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=BIGINT}
+    where funcId = #{funcid,jdbcType=VARCHAR}
+  </update>
+</mapper>

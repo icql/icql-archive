@@ -1,0 +1,11 @@
+.idea/
+*.iml
+taotao-common/target/
+taotao-manager/target/
+taotao-manager/taotao-manager-dao/target/
+taotao-manager/taotao-manager-pojo/target/
+taotao-manager/taotao-manager-service/target/
+taotao-manager/taotao-manager-web/target/
+taotao-parent/target/
+taotao-portal/target/
+taotao-rest/target/

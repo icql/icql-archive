@@ -1,0 +1,20 @@
+server:
+  port: 9006
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: ithome-spit
+  data:
+    mongodb:
+      host: 192.168.184.134
+      port: 1111
+      database: spitdb
+  redis:
+    host: 188.188.0.0
+
+logging:
+  level:
+    root: INFO
+  #file: ithome-label.log

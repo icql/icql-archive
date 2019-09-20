@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Bookmark Sync</title>
+    <style>
+        @media screen and (min-width:965px) {
+        body {font-size:1vw;}
+        #content{width: 50%}
+        }
+
+        @media screen and (max-width:965px) and (min-width:445px) {
+        body {font-size:3vw;}
+        #content{width: 90%}
+        }
+
+        @media screen and (max-width:445px) {
+        body {font-size:4vw;}
+        #content{width: 95%}
+        }
+    </style>
+</head>
+<body>
+
+<h3 style='text-align:center;margin-top:30px'>ICQL Bookmark Sync</h3>
+<div style='text-align:center;margin-top:30px'>
+    注册地址：<a href="/user/register" target="_blank">点击</a>
+    <div id="content" style='margin:0 auto;text-align:left'>
+        使用说明：
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        点击注册后请及时登录注册邮箱，点击激活链接，然后请在chrome系浏览器输入网址
+        chrome://extensions
+        打开，拖拽下载的扩展文件（.crx文件）到浏览器的扩展窗口点击添加（新版浏览器谷歌对第三方插件进行了限制，请解压.crx文件，
+        浏览器扩展窗口选择开发者模式——加载已解压的扩展程序——选择解压的文件夹），再点击浏览器右上角"书本标志"的扩展，
+        登录账户并设置同步时间间隔，至此配置完成。
+        <br><br>
+        提供接口：
+        <br>
+        /bookmark/data?name=xxx&version=xxx 提供json数据，version为空时取最新版
+        <br>
+        /bookmark/data/page?name=xxx&version=xxx 提供简单页面展示
+        <br><br>
+        扩展下载：
+        <br>
+        <a href='https://file.icql.work/crx/icql_bookmark_sync.crx'>ICQL Bookmark Sync</a>
+        [地址：https://file.icql.work/crx/icql_bookmark_sync.crx]
+    </div>
+</div>
+
+</body>
+</html>

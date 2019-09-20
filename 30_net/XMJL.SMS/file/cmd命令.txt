@@ -1,0 +1,11 @@
+﻿#创建服务
+sc create XMJLSMS binPath= D:\yd_sms\windows-service\XMJL.SMS.exe  DisplayName= XMJLSMS start= auto
+
+#启动服务
+sc  start XMJLSMS
+
+#停止服务
+sc  stop XMJLSMS
+
+#删除服务
+sc  delete XMJLSMS

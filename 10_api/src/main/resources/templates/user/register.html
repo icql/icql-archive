@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>用户注册</title>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.icql.js"></script>
+    <style>
+        @media screen and (min-width:965px) {
+        body {font-size:1vw;}
+        }
+
+        @media screen and (max-width:965px) and (min-width:445px) {
+        body {font-size:3.5vw;}
+        }
+
+        @media screen and (max-width:445px) {
+        body {font-size:4vw;}
+        }
+    </style>
+</head>
+<body>
+<h3 style='text-align:center;margin-top:30px'>用户注册</h3>
+
+<table style='text-align:center;margin: 50px auto;'>
+    <tr>
+        <td>用户名：</td>
+        <td>
+            <input id='name' type="text" placeholder='请输入用户名' autocomplete="off"/>
+        </td>
+    </tr>
+    <tr>
+        <td>邮箱：</td>
+        <td>
+            <input id='email' type="text" placeholder='请输入邮箱' autocomplete="off"/>
+        </td>
+    </tr>
+    <tr>
+        <td>密码：</td>
+        <td>
+            <input id='password' type="password" placeholder='请输入密码' autocomplete="off"/>
+
+        </td>
+    </tr>
+    <tr>
+        <td>再次输入密码：</td>
+        <td>
+            <input id='rePassword' type="password" placeholder='请再次输入密码' autocomplete="off" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button onclick='return register();'>点击注册！</button>
+        </td>
+    </tr>
+</table>
+
+<script>
+    function register() {
+        var name = document.getElementById("name");
+        var email = document.getElementById("email");
+        var password = document.getElementById("password");
+        var rePassword = document.getElementById("rePassword");
+
+        if (name.value == "" || email.value == "" || password.value == "" || rePassword.value == "") {
+            alert("请输入必填项!");
+            return false;
+        }
+
+        var regName = new RegExp("^[0-9a-zA-Z]*$");
+        if (!regName.test(name.value)) {
+            alert("用户名只能是字母数字的组合!");
+            return false;
+        }
+        var regEmail = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+        if (!regEmail.test(email.value)) {
+            alert("请输入正确的邮箱地址!");
+            return false;
+        }
+        if (password.value != rePassword.value) {
+            alert("两次密码输入不一致，请检查!");
+            return false;
+        }
+
+        var data = {"name": name.value, "email": email.value, "password": password.value};
+        ICQL.POST("/user", JSON.stringify(data),
+            function (result) {
+                alert(result.msg);
+            },
+            function (result) {
+                alert(result.responseJSON.msg + "，" + result.responseJSON.data);
+            });
+        return true;
+    }
+</script>
+
+</body>
+</html>

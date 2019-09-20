@@ -1,0 +1,31 @@
+server:
+  port: 10000
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    root: INFO
+   #file: config.log
+
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git.icql.work/icql-update/icql-service-config.git
+          search-paths: /
+          default-label: master
+          username: icql-update
+          password: cqljia19930618
+#  rabbitmq:
+#    host: 192.168.184.135
+#
+##消息总线
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: bus-refresh

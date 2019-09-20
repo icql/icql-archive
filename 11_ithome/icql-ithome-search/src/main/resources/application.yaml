@@ -1,0 +1,16 @@
+server:
+  port: 9007
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: ithome-search
+  data:
+    elasticsearch:
+      cluster‐nodes: 127.0.0.1:9300
+
+logging:
+  level:
+    root: INFO
+  #file: ithome-search.log

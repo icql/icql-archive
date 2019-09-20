@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="format-detection" content="telephone=yes"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>VIP视频解析</title>
+    <!-- 导入jq，bootstrap -->
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <script src="/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.icql.js"></script>
+    <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/vip.css" rel="stylesheet" type="text/css"/>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+<!-- 导航栏 -->
+<div id="topNav">
+    <div class="inline" style="margin-left:25%"><img style="margin:0" src="/img/logo.png" width="150px" height="22px">
+    </div>
+    <div class="inline" style="margin-right:25%;float:right">
+        <div class="inline menu"><a href="#" id="instructions">使用说明</a></div>
+        <div class="inline menu"><a href="#" id="changelog">更新日志</a></div>
+        <div class="inline menu">
+            <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7d7a29zf1NnUrZycw46CgA"
+               style="text-decoration:none;"><img
+                    src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_11.png"/></a>
+        </div>
+    </div>
+</div>
+
+<!-- 播放界面 -->
+<div id="playArea">
+    <iframe id="playIframe" src=""></iframe>
+</div>
+
+<!-- 播放地址以及接口选择 -->
+<div style="margin:0 auto;margin-top:10px;text-align:center;width:60%">
+        <span>接口
+            <select id="interface" class="form-control" style="display: inline-block;width: 100px"></select>
+        </span>
+    <span style="margin-left:5%">url地址
+            <input id="url" placeholder="输入需要vip会员的视频地址" class="form-control"
+                   style="display: inline-block;width: 40%" type="text" autocomplete="off">
+        </span>
+    <span>
+            <a id="play" class="btn btn-success" href="javascript:void(0)" onclick='play(0);'>播放</a>
+            <a id="playNew" class="btn btn-success" href="javascript:void(0)" onclick='play(1);'>新窗口播放</a>
+        </span>
+</div>
+
+
+<h5 id="btnAlipay" style="text-align:center;font-weight:bold;cursor:pointer">非常感谢您的支付宝捐赠！（点击隐藏/展开）</h5>
+<div id="alipay" style="margin:0 auto;text-align:center;display: none">
+    <img src="/img/alipay.jpg" style="width:80px;height:80px" title="支付宝"/>
+</div>
+
+<!--MOB SHARE BEGIN-->
+<div class="-mob-share-ui-button -mob-share-open" style="margin:0 auto;padding:0;width:80px;background-color:#E24242">
+    分享网站
+</div>
+<div class="-mob-share-ui" style="display: none">
+    <ul class="-mob-share-list">
+        <li class="-mob-share-weibo">
+            <p>新浪微博</p>
+        </li>
+        <li class="-mob-share-weixin">
+            <p>微信</p>
+        </li>
+        <li class="-mob-share-douban">
+            <p>豆瓣</p>
+        </li>
+        <li class="-mob-share-google">
+            <p>Google+</p>
+        </li>
+        <li class="-mob-share-linkedin">
+            <p>LinkedIn</p>
+        </li>
+    </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=1e6968277bb03"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?0933434423222330"></script>
+<script>
+    var url = location.href.split('#')[0];
+    mobShare.config({
+        debug: false, // 开启调试，将在浏览器的控制台输出调试信息
+        appkey: '1e6968277bb03',
+        params: {
+            url: url,
+            title: 'VIP视频解析站',
+            pic: 'https://github.com/icql/blog/blob/master/img/avatar.jpg?raw=true',
+        },
+        callback: function (plat, params) {
+            //alert(params.url);
+        }
+    });
+</script>
+<!--MOB SHARE END-->
+
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjk5NC85NTU2">
+    <script type="text/javascript">
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') {
+                return;
+            }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+<h5 style="text-align:center;font-weight:bold;">Copyright © 2019 VIP视频解析站
+    <span id="busuanzi_container_site_uv">
+            | 本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+</h5>
+
+<script src="/js/vip.js" type="text/javascript"></script>
+<script async src="/js/busuanzi.prue.mini.js"></script>
+</body>
+
+</html>
