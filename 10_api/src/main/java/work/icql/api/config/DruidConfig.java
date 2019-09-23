@@ -40,7 +40,7 @@ public class DruidConfig {
     public ServletRegistrationBean druidServlet() {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
         // IP白名单
-        servletRegistrationBean.addInitParameter("allow", "127.0.0.1");
+        servletRegistrationBean.addInitParameter("allow", "*");
 
         //控制台登录信息
         servletRegistrationBean.addInitParameter("loginUsername", loginUsername);
