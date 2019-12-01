@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('button').addEventListener('click', setting);
-    document.querySelector('a').addEventListener('click', home);
+    document.getElementById('setting').addEventListener('click', setting);
+    document.getElementById('home').addEventListener('click', home);
+    document.getElementById('vip').addEventListener('click', vip);
 });
 
 function home() {
-    window.open("https://api.icql.work/bookmark");
+    window.open("http://localhost:8080/bookmark");
 }
 
 function setting(e) {
@@ -40,11 +41,11 @@ function setting(e) {
                 alert("登录并设置成功！");
             },
             error: function (result) {
-                if(result.responseJSON){
+                if (result.responseJSON) {
                     let msg = result.responseJSON.msg + "，" + result.responseJSON.data;
                     console.log(msg);
                     alert(msg);
-                }else{
+                } else {
                     alert("登录失败");
                 }
             }
@@ -53,6 +54,13 @@ function setting(e) {
         localStorage.timeInterval = parseInt(timeInterval.value.trim());
     }
     return true;
+}
+
+function vip(e) {
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+        let url = 'https://api.927jx.com/vip/jx.php?url=' + tabs[0].url;
+        window.open(url);
+    });
 }
 
 window.onload = function () {

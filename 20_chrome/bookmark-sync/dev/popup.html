@@ -9,16 +9,37 @@
     <title>ICQL Bookmark Sync</title>
 </head>
 <body>
-    <h4>ICQL Bookmark Sync 设置项：</h4>
-    <div style="width:310px;">
-        <table>
-            <tr><td>当前书签版本：</td><td><span id="bookmarkversion"></span></td></tr>
-            <tr><td>用户名或邮箱：</td><td><input id="nameOrEmail" type="text" /></td></tr>
-            <tr><td>密码：</td><td><input id="password" type="password" /></td></tr>
-            <tr><td>同步时间间隔（分钟）:</td><td><input id="timeInterval" /></td></tr>
-            <tr><td colspan="2" style="text-align:center"><button>设置</button></td></tr>
-            <tr><td colspan="2" style="text-align:center">访问主页[ <a href="https://api.icql.work/bookmark">https://api.icql.work/bookmark</a> ]注册账号</td></tr>
-        </table>
-    </div>
+<h4>ICQL Bookmark Sync 设置项：</h4>
+<div style="width:310px;">
+    <table>
+        <tr>
+            <td>当前书签版本：</td>
+            <td><span id="bookmarkversion"></span></td>
+        </tr>
+        <tr>
+            <td>用户名或邮箱：</td>
+            <td><input id="nameOrEmail" type="text"/></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input id="password" type="password"/></td>
+        </tr>
+        <tr>
+            <td>同步时间间隔（分钟）:</td>
+            <td><input id="timeInterval"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <button id="setting">设置</button>
+                <button id="vip">vip视频播放</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">访问主页[ <a id="home" href="https://api.icql.work/bookmark">https://api.icql.work/bookmark</a>
+                ]注册账号
+            </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

@@ -1,1 +1,71 @@
-var _0x304d=["\x44\x4F\x4D\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x6F\x61\x64\x65\x64","\x63\x6C\x69\x63\x6B","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x62\x75\x74\x74\x6F\x6E","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x61","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x61\x70\x69\x2E\x69\x63\x71\x6C\x2E\x77\x6F\x72\x6B\x2F\x62\x6F\x6F\x6B\x6D\x61\x72\x6B","\x6F\x70\x65\x6E","\x5E\x5B\x30\x2D\x39\x5D\x2B\x24","\x6E\x61\x6D\x65\x4F\x72\x45\x6D\x61\x69\x6C","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x70\x61\x73\x73\x77\x6F\x72\x64","\x74\x69\x6D\x65\x49\x6E\x74\x65\x72\x76\x61\x6C","\x74\x72\x69\x6D","\x76\x61\x6C\x75\x65","","\u7528\u6237\u540D\u6216\u90AE\u7BB1\u4E0D\u80FD\u4E3A\u7A7A\x21","\u5BC6\u7801\u4E0D\u80FD\u4E3A\u7A7A\x21","\x74\x65\x73\x74","\u540C\u6B65\u65F6\u95F4\u95F4\u9694\u5FC5\u987B\u4E3A\u6B63\u6574\u6570\uFF01","\x50\x4F\x53\x54","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x61\x70\x69\x2E\x69\x63\x71\x6C\x2E\x77\x6F\x72\x6B\x2F\x61\x75\x74\x68","\x6A\x73\x6F\x6E","\x74\x6F\x6B\x65\x6E","\x64\x61\x74\x61","\x69\x63\x71\x6C\x40\x61\x75\x74\x68\x26","\x65\x6E\x63\x6F\x64\x65","\x62\x6F\x6F\x6B\x6D\x61\x72\x6B\x76\x65\x72\x73\x69\x6F\x6E","\u767B\u5F55\u5E76\u8BBE\u7F6E\u6210\u529F\uFF01","\x72\x65\x73\x70\x6F\x6E\x73\x65\x4A\x53\x4F\x4E","\x6D\x73\x67","\uFF0C","\x6C\x6F\x67","\u767B\u5F55\u5931\u8D25","\x61\x6A\x61\x78","\x6F\x6E\x6C\x6F\x61\x64","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x73\x75\x62\x73\x74\x72\x69\x6E\x67","\x64\x65\x63\x6F\x64\x65"];document[_0x304d[2]](_0x304d[0],function(){document[_0x304d[4]](_0x304d[3])[_0x304d[2]](_0x304d[1],setting);document[_0x304d[4]](_0x304d[5])[_0x304d[2]](_0x304d[1],home)});function home(){window[_0x304d[7]](_0x304d[6])}function setting(_0x2c9ex3){var _0x2c9ex4= new RegExp(_0x304d[8]);var _0x2c9ex5=document[_0x304d[10]](_0x304d[9]);var _0x2c9ex6=document[_0x304d[10]](_0x304d[11]);var _0x2c9ex7=document[_0x304d[10]](_0x304d[12]);if(_0x2c9ex5[_0x304d[14]][_0x304d[13]]()== _0x304d[15]){alert(_0x304d[16]);return false}else {if(_0x2c9ex6[_0x304d[14]][_0x304d[13]]()== _0x304d[15]){alert(_0x304d[17]);return false}else {if(!_0x2c9ex4[_0x304d[18]](_0x2c9ex7[_0x304d[14]])){alert(_0x304d[19]);return false}else {$[_0x304d[34]]({type:_0x304d[20],url:_0x304d[21],data:{"\x61\x63\x63\x6F\x75\x6E\x74":_0x2c9ex5[_0x304d[14]],"\x70\x61\x73\x73\x77\x6F\x72\x64":_0x2c9ex6[_0x304d[14]],"\x65\x78\x70\x69\x72\x65":-1},dataType:_0x304d[22],success:function(_0x2c9ex8){localStorage[_0x304d[23]]= _0x2c9ex8[_0x304d[24]];localStorage[_0x304d[9]]= _0x2c9ex5[_0x304d[14]];localStorage[_0x304d[11]]= Base64[_0x304d[26]](_0x304d[25]+ _0x2c9ex6[_0x304d[14]]);localStorage[_0x304d[27]]= 0;alert(_0x304d[28])},error:function(_0x2c9ex8){if(_0x2c9ex8[_0x304d[29]]){let _0x2c9ex9=_0x2c9ex8[_0x304d[29]][_0x304d[30]]+ _0x304d[31]+ _0x2c9ex8[_0x304d[29]][_0x304d[24]];console[_0x304d[32]](_0x2c9ex9);alert(_0x2c9ex9)}else {alert(_0x304d[33])}}});localStorage[_0x304d[12]]= parseInt(_0x2c9ex7[_0x304d[14]][_0x304d[13]]())}}};return true}window[_0x304d[35]]= function(){document[_0x304d[10]](_0x304d[27])[_0x304d[36]]= localStorage[_0x304d[27]]?localStorage[_0x304d[27]]:_0x304d[15];document[_0x304d[10]](_0x304d[9])[_0x304d[14]]= localStorage[_0x304d[9]]?localStorage[_0x304d[9]]:_0x304d[15];document[_0x304d[10]](_0x304d[11])[_0x304d[14]]= localStorage[_0x304d[11]]?Base64[_0x304d[38]](localStorage[_0x304d[11]])[_0x304d[37]](10):_0x304d[15];document[_0x304d[10]](_0x304d[12])[_0x304d[14]]= localStorage[_0x304d[12]]?localStorage[_0x304d[12]]:_0x304d[15]}
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('setting').addEventListener('click', setting);
+    document.getElementById('home').addEventListener('click', home);
+    document.getElementById('vip').addEventListener('click', vip);
+});
+
+function home() {
+    window.open("https://api.icql.work/bookmark");
+}
+
+function setting(e) {
+    var reg = new RegExp("^[0-9]+$");
+    var nameOrEmail = document.getElementById("nameOrEmail");
+    var password = document.getElementById("password");
+    var timeInterval = document.getElementById("timeInterval");
+
+    if (nameOrEmail.value.trim() == "") {
+        alert("用户名或邮箱不能为空!");
+        return false;
+    } else if (password.value.trim() == "") {
+        alert("密码不能为空!");
+        return false;
+    } else if (!reg.test(timeInterval.value)) {
+        alert("同步时间间隔必须为正整数！");
+        return false;
+    } else {
+        $.ajax({
+            type: 'POST',
+            url: "https://api.icql.work/auth",
+            data: {
+                "account": nameOrEmail.value,
+                "password": password.value,
+                "expire": -1
+            },
+            dataType: "json",
+            success: function (result) {
+                localStorage.token = result.data;
+                localStorage.nameOrEmail = nameOrEmail.value;
+                localStorage.password = Base64.encode("icql@auth&" + password.value);
+                localStorage.bookmarkversion = 0;
+                alert("登录并设置成功！");
+            },
+            error: function (result) {
+                if (result.responseJSON) {
+                    let msg = result.responseJSON.msg + "，" + result.responseJSON.data;
+                    console.log(msg);
+                    alert(msg);
+                } else {
+                    alert("登录失败");
+                }
+            }
+        });
+
+        localStorage.timeInterval = parseInt(timeInterval.value.trim());
+    }
+    return true;
+}
+
+function vip(e) {
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+        let url = 'https://api.927jx.com/vip/jx.php?url=' + tabs[0].url;
+        window.open(url);
+    });
+}
+
+window.onload = function () {
+    document.getElementById("bookmarkversion").innerHTML = localStorage.bookmarkversion ? localStorage.bookmarkversion : "";
+    document.getElementById("nameOrEmail").value = localStorage.nameOrEmail ? localStorage.nameOrEmail : "";
+    document.getElementById("password").value = localStorage.password ? Base64.decode(localStorage.password).substring(10) : "";
+    document.getElementById("timeInterval").value = localStorage.timeInterval ? localStorage.timeInterval : "";
+}
