@@ -36,7 +36,7 @@
         <oracle.version>10.2.0.4.0</oracle.version>
         <dubbo-springboot.version>0.2.0</dubbo-springboot.version>
         <dubbo.version>2.6.3</dubbo.version>
-        <zookeeper.version>3.4.10</zookeeper.version>
+        <zookeeper.version>3.4.14</zookeeper.version>
 
         <fastdfs.version>1.27</fastdfs.version>
         <poi.version>4.0.0</poi.version>
