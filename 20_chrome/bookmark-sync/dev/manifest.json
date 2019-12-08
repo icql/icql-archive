@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "ICQL Bookmark Sync",
-    "description": "书签同步[ http://icql.work/api/bookmark ]",
+    "description": "书签同步[ https://api.icql.work/bookmark ]",
     "version": "1.0",
     "browser_action": {
         "default_icon": "icon.png",

@@ -58,7 +58,7 @@ function setting(e) {
 
 function vip(e) {
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-        let url = 'https://api.927jx.com/vip/jx.php?url=' + tabs[0].url;
+        let url = 'https://doc.icql.work/vip.html?url=' + tabs[0].url;
         window.open(url);
     });
 }
