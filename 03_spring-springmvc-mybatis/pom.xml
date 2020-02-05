@@ -51,7 +51,7 @@
         <fastdfs.version>1.27</fastdfs.version>
         <commons-net.version>3.6</commons-net.version>
         <poi.version>4.0.0</poi.version>
-        <shiro.version>1.2.4</shiro.version>
+        <shiro.version>1.5.0</shiro.version>
         <ehcache.version>3.1.1</ehcache.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <freemarker.version>2.3.28</freemarker.version>
